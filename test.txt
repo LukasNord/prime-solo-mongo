@@ -1,0 +1,10 @@
+orders.update(
+    { orderDate: new Date('2017-01-02') },
+     {$set: 
+        { lineItems: 
+            { unitPrice: 3, quantity: 3, productName: '2 transistor radios' } } })
+
+
+orders.find(
+   { lineItems: { $elemMatch: { quantity: {$gt: 2 , $lt: 10}   } } }
+)
